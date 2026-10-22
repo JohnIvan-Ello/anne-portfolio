@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariel Anne Amaga - Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#f0f7ff',
+                            DEFAULT: '#0369a1', // The requested prominent blue
+                            dark: '#0284c7',
+                        },
+                        navy: {
+                            900: '#091120',
+                            800: '#111b2e',
+                            700: '#1a2744'
+                        }
+                    },
+                    backgroundImage: {
+                        'mountain-pattern': "url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop')",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-3deg); }
+            50% { transform: translateY(-8px) rotate(-3deg); }
+            100% { transform: translateY(0px) rotate(-3deg); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Entrance Animations (Hero) */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+
+        /* Scroll Reveal Animations (Intersection Observer) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Smooth underline drawing */
+        .swoosh-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw 2s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px; /* arbitrary large enough height */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-slate-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand selection:text-white">
+
+    <!-- Hero Section -->
+    <section class="bg-navy-900 bg-mountain-pattern bg-cover bg-center bg-blend-overlay bg-opacity-[0.93] text-white relative pt-6 pb-20 lg:pb-32 border-b-4 border-[#0369a1]/30 overflow-hidden">
+        
+        <!-- Navigation -->
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="flex justify-between items-center mb-8 lg:mb-20">
+                <div class="flex items-center space-x-3 hero-animate">
+                    <span class="text-3xl font-bold tracking-widest text-white">MAA</span>
+                    <span class="hidden md:block border-l border-slate-600 h-5 mx-2"></span>
+                    <span class="hidden md:block text-slate-400 text-xs font-semibold tracking-[0.2em]">FINANCE &bull; ANALYTICS &bull; GROWTH</span>
+                </div>
+                
+                <!-- Desktop Links -->
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-medium hero-animate delay-100">
+                    <a href="#" class="text-white border-b-2 border-brand pb-1 transition-colors">Home</a>
+                    <a href="#education" class="text-slate-300 hover:text-white hover:-translate-y-0.5 transition-all duration-300">Education</a>
+                    <a href="#skills" class="text-slate-300 hover:text-white hover:-translate-y-0.5 transition-all duration-300">Skills</a>
+                    <a href="#certifications" class="text-slate-300 hover:text-white hover:-translate-y-0.5 transition-all duration-300">Certifications</a>
+                    <a href="#projects" class="text-slate-300 hover:text-white hover:-translate-y-0.5 transition-all duration-300">Projects</a>
+                    <a href="#contact" class="border border-slate-500 rounded-full px-5 py-2 flex items-center gap-2 hover:bg-brand hover:border-brand hover:scale-105 transition-all duration-300">
+                        <i class="fa-regular fa-envelope"></i> Contact
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white focus:outline-none z-30 transition-transform duration-300">
+                    <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="lg:hidden absolute top-16 left-0 right-0 bg-navy-900/95 backdrop-blur-md border-b border-slate-800 shadow-2xl z-20">
+                <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col items-center">
+                    <a href="#" class="block px-3 py-2 text-white font-medium hover:text-brand transition-colors mobile-link">Home</a>
+                    <a href="#education" class="block px-3 py-2 text-slate-300 font-medium hover:text-white transition-colors mobile-link">Education</a>
+                    <a href="#skills" class="block px-3 py-2 text-slate-300 font-medium hover:text-white transition-colors mobile-link">Skills</a>
+                    <a href="#certifications" class="block px-3 py-2 text-slate-300 font-medium hover:text-white transition-colors mobile-link">Certifications</a>
+                    <a href="#projects" class="block px-3 py-2 text-slate-300 font-medium hover:text-white transition-colors mobile-link">Projects</a>
+                    <a href="#contact" class="mt-4 inline-flex border border-brand text-brand rounded-full px-6 py-2 items-center gap-2 hover:bg-brand hover:text-white transition-all mobile-link">
+                        <i class="fa-regular fa-envelope"></i> Contact
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Content Wrapper -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center lg:items-stretch relative z-10 pt-4">
+            
+            <!-- Left: Profile Image Container -->
+            <div class="shrink-0 relative hero-animate delay-100">
+                <!-- Decorative accent block -->
+                <div class="absolute -left-10 top-1/2 -translate-y-1/2 w-8 h-48 bg-gradient-to-b from-[#0369a1] to-blue-800 opacity-60 rounded-l-md hidden lg:block"></div>
+                
+                <div class="w-56 h-72 sm:w-64 sm:h-80 relative group">
+                    <img src="profile-photo.jpg" alt="Profile Picture" class="w-full h-full object-cover rounded-2xl border-2 border-slate-700/50 shadow-xl relative z-10 group-hover:border-[#0369a1] transition-colors duration-500"">
+                    <!-- Overlay shadow for depth -->
+                    <div class="absolute inset-0 shadow-[inset_0_-20px_50px_rgba(0,0,0,0.5)] rounded-2xl pointer-events-none z-20"></div>
+                </div>
+            </div>
+
+            <!-- Middle: Main Information -->
+            <div class="flex-1 flex flex-col justify-center text-center lg:text-left">
+                <p class="text-brand text-xs sm:text-sm font-bold tracking-[0.15em] uppercase mb-3 hero-animate delay-200">Financial Management Graduate</p>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2 tracking-tight hero-animate delay-300 whitespace-nowrap">Mariel Anne Amaga</h1>
+                <h2 class="text-xl sm:text-2xl text-slate-300 font-medium mb-6 hero-animate delay-300">FP&A Analyst | Financial Analyst</h2>
+                
+                <p class="text-slate-400 text-sm sm:text-base max-w-xl leading-relaxed mb-8 mx-auto lg:mx-0 hero-animate delay-400">
+                    Strong foundation in finance, analytical thinking, and a passion for turning data into insights. Eager to contribute to a dynamic team and grow in the field of FP&A.
+                </p>
+                
+                <!-- Contact Row -->
+                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-6 sm:gap-8 text-sm text-slate-300 hero-animate delay-400">
+                    <a href="mailto:amagamarielanne@gmail.com" class="flex items-center gap-2 hover:text-[#0369a1] hover:scale-105 transition-all duration-300"><i class="fa-regular fa-envelope text-lg"></i> amagamarielanne@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/marielanneamaga/" class="flex items-center gap-2 hover:text-[#0369a1] hover:scale-105 transition-all duration-300"><i class="fa-brands fa-linkedin text-lg"></i> linkedin.com/in/marielanneamaga</a>
+                </div>
+            </div>
+
+            <!-- Right: Cursive Quote & Box -->
+            <div class="shrink-0 flex flex-col items-center lg:items-end justify-center mt-10 lg:mt-0 relative w-full lg:w-72 hidden sm:flex hero-animate delay-400">
+                
+                <!-- Cursive Text -->
+                <div class="relative mb-12 transform -rotate-3 lg:mr-2 animate-float hover:scale-105 transition-transform duration-500 cursor-default">
+                    <p class="font-handwriting text-3xl sm:text-4xl leading-[1.2] text-slate-200 text-center lg:text-right drop-shadow-lg">
+                        Building my future<br>one analysis at a time.
+                    </p>
+                    <!-- Hand-drawn SVG underline -->
+                    <svg class="absolute -bottom-5 left-1/2 lg:left-auto lg:right-0 transform -translate-x-1/2 lg:translate-x-0 w-48 text-[#0369a1] drop-shadow-md" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12 Q 50 2, 100 10 T 195 8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" class="swoosh-path"/>
+                    </svg>
+                </div>
+
+                <!-- Dark Box -->
+                <div class="bg-navy-800/80 backdrop-blur-md border border-slate-600 rounded-xl p-5 flex items-center gap-4 shadow-2xl hover:border-[#0369a1] hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="text-[#0369a1] bg-navy-900 p-3 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-chart-line text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">From Data</div>
+                        <div class="font-bold text-white text-sm">to Better Decisions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area (Light Background) -->
+    <main class="flex-grow bg-slate-50 py-16 lg:py-20 relative z-10">
+        
+        <!-- Grid Container -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            
+            <!-- Education Card -->
+            <div id="education" class="reveal bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300">
+                        <i class="fa-solid fa-graduation-cap text-[#0369a1] group-hover:text-white text-lg transition-colors duration-300"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-navy-900">Education</h2>
+                </div>
+
+                <div class="flex items-start gap-4 mb-8">
+                    <!-- University Logo Placeholder -->
+                    <img src="assets/university-logo.png" alt="University Logo" class="w-14 h-14 rounded-full object-contain border-[3px] border-[#927F47] shrink-0 bg-white shadow-sm group-hover:border-[#0369a1]/50 transition-colors duration-300" onerror="this.src='https://placehold.co/100x100/ffffff/927F47?text=Logo'">
+                    <div>
+                        <h3 class="font-bold text-navy-900 text-lg">Rizal Technological University</h3>
+                        <p class="text-sm font-medium text-[#0369a1] mt-1">Bachelor of Science in Business Administration Major in Financial Management</p>
+                        <p class="text-sm text-slate-500 mt-1"><i class="fa-regular fa-calendar mr-1"></i> 2023 – 2027</p>
+                        <p class="text-sm font-bold text-slate-700 mt-2 inline-block bg-slate-100 px-3 py-1 rounded-full">JFinEx - Treasurer</p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-slate-100 pt-6">
+                    <h4 class="text-sm font-bold text-navy-900 mb-4 uppercase tracking-wider">Key Coursework</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm text-slate-600 font-medium">
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Financial Accounting</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Investment Analysis</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Managerial Accounting</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Business Law</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Corporate Finance</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Taxation</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Financial Management</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Economics</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div id="skills" class="reveal delay-100 bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300">
+                        <i class="fa-solid fa-gear text-[#0369a1] group-hover:text-white text-lg transition-colors duration-300"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-navy-900">Skills</h2>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-sm font-bold text-navy-900 mb-3 uppercase tracking-wider">Financial & Analytical</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Financial Modeling</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Budgeting & Forecasting</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Variance Analysis</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Data Analysis (Excel)</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Financial Reporting</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">KPI Tracking</span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-sm font-bold text-navy-900 mb-3 uppercase tracking-wider">Tools & Software</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Microsoft Excel (Advanced)</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Power BI</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Google Sheets</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">SAP (Basic)</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">SQL (Basic)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-navy-900 mb-3 uppercase tracking-wider">Soft Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Analytical Thinking</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Problem Solving</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Communication</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Teamwork</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Time Management</span>
+                        <span class="bg-[#f0f7ff] border border-blue-100 text-[#0369a1] hover:bg-[#0369a1] hover:text-white transition-colors duration-300 cursor-default text-xs font-semibold px-3.5 py-1.5 rounded-full">Attention to Detail</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Card -->
+            <div id="certifications" class="reveal bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300">
+                        <i class="fa-solid fa-award text-[#0369a1] group-hover:text-white text-lg transition-colors duration-300"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-navy-900">Certifications</h2>
+                </div>
+
+                <div class="space-y-6">
+                    <a href="#" class="flex items-center justify-between p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-file-excel text-green-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-900 group-hover/cert:text-[#0369a1] transition-colors">Microsoft Excel - Advanced</h4>
+                                <p class="text-xs text-slate-500 mt-1 font-medium">LinkedIn Learning | 2025</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1"></i>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-google text-[#4285F4] text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-900 group-hover/cert:text-[#0369a1] transition-colors">Google Data Analytics Professional</h4>
+                                <p class="text-xs text-slate-500 mt-1 font-medium">Coursera | 2025</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1"></i>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-chart-pie text-indigo-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-900 group-hover/cert:text-[#0369a1] transition-colors">FMVA® (Financial Modeling)</h4>
+                                <p class="text-xs text-slate-500 mt-1 font-medium">Corporate Finance Institute | 2025</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projects Card -->
+            <div id="projects" class="reveal delay-100 bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300">
+                            <i class="fa-solid fa-file-lines text-[#0369a1] group-hover:text-white text-lg transition-colors duration-300"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-navy-900">Projects</h2>
+                    </div>
+                    <a href="#" class="text-xs font-semibold text-[#0369a1] hover:text-navy-900 hover:underline transition-colors uppercase tracking-wider">See More</a>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex flex-col sm:flex-row gap-4 p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group/proj">
+                        <img src="assets/project-1.png" alt="Project 1" class="w-full sm:w-24 h-16 rounded-lg object-cover border border-slate-200 shrink-0 group-hover/proj:border-[#0369a1]/30 transition-colors" onerror="this.src='https://placehold.co/200x150/f1f5f9/64748b?text=P1'">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-navy-900 group-hover/proj:text-[#0369a1] transition-colors">FP&A Dashboard - Monthly Planning</h4>
+                            <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">Built a dynamic financial model in Excel to project revenue, expenses, and profitability for the next 12 months.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="text-[10px] font-bold text-[#0369a1] bg-blue-50 px-2 py-0.5 rounded">EXCEL</span>
+                                <span class="text-[10px] font-bold text-[#0369a1] bg-blue-50 px-2 py-0.5 rounded">FINANCIAL MODELING</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group/proj">
+                        <img src="assets/project-2.png" alt="Project 2" class="w-full sm:w-24 h-16 rounded-lg object-cover border border-slate-200 shrink-0 group-hover/proj:border-[#0369a1]/30 transition-colors" onerror="this.src='https://placehold.co/200x150/f1f5f9/64748b?text=P2'">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-navy-900 group-hover/proj:text-[#0369a1] transition-colors">Budget Variance Analysis</h4>
+                            <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">Analyzed actual vs. budget performance for a business unit and provided insights on key cost drivers.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="text-[10px] font-bold text-[#0369a1] bg-blue-50 px-2 py-0.5 rounded">DATA ANALYSIS</span>
+                                <span class="text-[10px] font-bold text-[#0369a1] bg-blue-50 px-2 py-0.5 rounded">REPORTING</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Call To Action Banner -->
+        <div class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+            <div class="bg-gradient-to-r from-[#f0f7ff] to-blue-50 rounded-2xl border border-blue-200 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-start sm:items-center gap-5">
+                    <div class="bg-white p-3 rounded-full shadow-sm shrink-0">
+                        <i class="fa-solid fa-bullseye text-[#0369a1] text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Looking for an FP&A Analyst | Financial Analyst role?</h3>
+                        <div class="flex flex-col sm:flex-row flex-wrap gap-y-1 gap-x-3 text-sm font-medium text-slate-600">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Open to entry-level opportunities</span>
+                            <span class="hidden sm:inline text-slate-300">|</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Ready to learn and contribute</span>
+                            <span class="hidden sm:inline text-slate-300">|</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Available immediately</span>
+                        </div>
+                    </div>
+                </div>
+                    <a href="mailto:amagamarielanne@gmail.com" class="w-full md:w-auto bg-navy-900 hover:bg-[#0369a1] text-white text-sm font-bold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 whitespace-nowrap flex items-center justify-center gap-2">
+                        Let's Connect <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section (Navy matching Hero) -->
+    <footer id="contact" class="bg-navy-900 bg-mountain-pattern bg-cover bg-center bg-blend-overlay bg-opacity-[0.95] text-white pt-20 pb-8 mt-auto border-t-4 border-[#0369a1]/30">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Top Footer Content Layout -->
+            <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-8 pb-16">
+                
+                <!-- Left: Goal Text -->
+                <div class="reveal w-full lg:w-5/12 text-center lg:text-left">
+                    <p class="text-[#0369a1] text-sm font-bold uppercase tracking-[0.2em] mb-4">My Goal</p>
+                    <p class="text-2xl sm:text-3xl font-bold text-slate-100 leading-snug tracking-tight">
+                        To become a valuable FP&A professional and contribute to meaningful business growth through data, strategy, and sound financial analysis.
+                    </p>
+                </div>
+
+                <!-- Center: Vertical Icons Lineup -->
+                <div class="reveal delay-100 w-full lg:w-4/12 flex items-center justify-center gap-6 sm:gap-10">
+                    <!-- Icon 1 -->
+                    <div class="flex flex-col items-center group cursor-pointer">
+                        <div class="w-14 h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
+                            <i class="fa-solid fa-book-open text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Learn<br>Continuously</span>
+                    </div>
+                    
+                    <!-- Icon 2 -->
+                    <div class="flex flex-col items-center group cursor-pointer">
+                        <div class="w-14 h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
+                            <i class="fa-solid fa-arrow-trend-up text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Drive<br>Impact</span>
+                    </div>
+
+                    <!-- Icon 3 -->
+                    <div class="flex flex-col items-center group cursor-pointer">
+                        <div class="w-14 h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
+                            <i class="fa-solid fa-users text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Build<br>Together</span>
+                    </div>
+                </div>
+
+                <!-- Right: Cursive Quote -->
+                <div class="reveal delay-200 w-full lg:w-3/12 flex justify-center lg:justify-end">
+                    <div class="relative transform -rotate-6 mt-4 hover:scale-105 transition-transform duration-500 cursor-default">
+                        <p class="font-handwriting text-3xl leading-[1.2] text-slate-200 text-center lg:text-left drop-shadow-md">
+                            Ready to learn, contribute,<br>and grow.
+                        </p>
+                        <!-- Underline SVG -->
+                        <svg class="absolute -bottom-3 left-1/2 lg:left-auto lg:-right-4 transform -translate-x-1/2 lg:translate-x-0 w-44 text-[#0369a1]" viewBox="0 0 200 20" fill="none">
+                            <path d="M10 15 Q 80 5, 180 12" stroke="currentColor" stroke-width="4" stroke-linecap="round" class="swoosh-path"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Line (Name and Socials) -->
+            <div class="border-t border-slate-700/80 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-sm text-slate-400">
+                    <span class="text-white font-bold tracking-wide">Mariel Anne Amaga</span>
+                    <span class="hidden sm:block border-l border-slate-600 h-4"></span>
+                    <span class="font-medium">FP&A Analyst | Financial Analyst</span>
+                </div>
+                <div class="flex space-x-6 text-xl">
+                    <a href="https://www.linkedin.com/in/marielanneamaga/" class="text-slate-400 hover:text-[#0369a1] hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:amagamarielanne@gmail.com" class="text-slate-400 hover:text-[#0369a1] hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Scripts for Interactivity -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('open');
+            if (mobileMenu.classList.contains('open')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(mobileMenu.classList.contains('open')) toggleMenu();
+            });
+        });
+
+        // 2. Intersection Observer for Scroll Reveal Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15, // Trigger when 15% of the element is visible
+                rootMargin: "0px 0px -50px 0px" // Offset slightly so it triggers just before coming fully into view
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed to only animate once
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
