@@ -161,17 +161,17 @@
                 <!-- Decorative accent block -->
                 <div class="absolute -left-10 top-1/2 -translate-y-1/2 w-8 h-48 bg-gradient-to-b from-[#0369a1] to-blue-800 opacity-60 rounded-l-md hidden lg:block"></div>
                 
-                <div class="w-56 h-72 sm:w-64 sm:h-80 relative group">
-                    <img src="profile-photo.jpg" alt="Profile Picture" class="w-full h-full object-cover rounded-2xl border-2 border-slate-700/50 shadow-xl relative z-10 group-hover:border-[#0369a1] transition-colors duration-500"">
+                <div class="w-48 h-64 sm:w-64 sm:h-80 relative group mx-auto lg:mx-0">
+                    <img src="assets/profile-photo.jpg" alt="Profile Picture" class="w-full h-full object-cover rounded-2xl border-2 border-slate-700/50 shadow-xl relative z-10 group-hover:border-[#0369a1] transition-colors duration-500" onerror="this.src='https://placehold.co/400x500/1e293b/0ea5e9?text=Profile'">
                     <!-- Overlay shadow for depth -->
                     <div class="absolute inset-0 shadow-[inset_0_-20px_50px_rgba(0,0,0,0.5)] rounded-2xl pointer-events-none z-20"></div>
                 </div>
             </div>
 
             <!-- Middle: Main Information -->
-            <div class="flex-1 flex flex-col justify-center text-center lg:text-left">
+            <div class="flex-1 flex flex-col justify-center text-center lg:text-left w-full">
                 <p class="text-brand text-xs sm:text-sm font-bold tracking-[0.15em] uppercase mb-3 hero-animate delay-200">Financial Management Graduate</p>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2 tracking-tight hero-animate delay-300 whitespace-nowrap">Mariel Anne Amaga</h1>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2 tracking-tight hero-animate delay-300 whitespace-normal md:whitespace-nowrap">Mariel Anne Amaga</h1>
                 <h2 class="text-xl sm:text-2xl text-slate-300 font-medium mb-6 hero-animate delay-300">FP&A Analyst | Financial Analyst</h2>
                 
                 <p class="text-slate-400 text-sm sm:text-base max-w-xl leading-relaxed mb-8 mx-auto lg:mx-0 hero-animate delay-400">
@@ -179,14 +179,14 @@
                 </p>
                 
                 <!-- Contact Row -->
-                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-6 sm:gap-8 text-sm text-slate-300 hero-animate delay-400">
+                <div class="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-8 text-sm text-slate-300 hero-animate delay-400">
                     <a href="mailto:amagamarielanne@gmail.com" class="flex items-center gap-2 hover:text-[#0369a1] hover:scale-105 transition-all duration-300"><i class="fa-regular fa-envelope text-lg"></i> amagamarielanne@gmail.com</a>
                     <a href="https://www.linkedin.com/in/marielanneamaga/" class="flex items-center gap-2 hover:text-[#0369a1] hover:scale-105 transition-all duration-300"><i class="fa-brands fa-linkedin text-lg"></i> linkedin.com/in/marielanneamaga</a>
                 </div>
             </div>
 
             <!-- Right: Cursive Quote & Box -->
-            <div class="shrink-0 flex flex-col items-center lg:items-end justify-center mt-10 lg:mt-0 relative w-full lg:w-72 hidden sm:flex hero-animate delay-400">
+            <div class="shrink-0 flex flex-col items-center lg:items-end justify-center mt-10 lg:mt-0 relative w-full lg:w-72 hidden md:flex hero-animate delay-400">
                 
                 <!-- Cursive Text -->
                 <div class="relative mb-12 transform -rotate-3 lg:mr-2 animate-float hover:scale-105 transition-transform duration-500 cursor-default">
@@ -214,50 +214,50 @@
     </section>
 
     <!-- Main Content Area (Light Background) -->
-    <main class="flex-grow bg-slate-50 py-16 lg:py-20 relative z-10">
+    <main class="flex-grow bg-slate-50 py-12 lg:py-20 relative z-10">
         
         <!-- Grid Container -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
             
             <!-- Education Card -->
-            <div id="education" class="reveal bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300">
+            <div id="education" class="reveal bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-5 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
+                <div class="flex items-center gap-3 mb-6 sm:mb-8">
+                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300 shrink-0">
                         <i class="fa-solid fa-graduation-cap text-[#0369a1] group-hover:text-white text-lg transition-colors duration-300"></i>
                     </div>
                     <h2 class="text-xl font-bold text-navy-900">Education</h2>
                 </div>
 
-                <div class="flex items-start gap-4 mb-8">
+                <div class="flex flex-col sm:flex-row items-start gap-4 mb-6 sm:mb-8">
                     <!-- University Logo Placeholder -->
-                    <img src="assets/university-logo.png" alt="University Logo" class="w-14 h-14 rounded-full object-contain border-[3px] border-[#927F47] shrink-0 bg-white shadow-sm group-hover:border-[#0369a1]/50 transition-colors duration-300" onerror="this.src='https://placehold.co/100x100/ffffff/927F47?text=Logo'">
+                    <img src="assets/university-logo.png" alt="University Logo" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-contain border-[3px] border-[#927F47] shrink-0 bg-white shadow-sm group-hover:border-[#0369a1]/50 transition-colors duration-300" onerror="this.src='https://placehold.co/100x100/ffffff/927F47?text=Logo'">
                     <div>
                         <h3 class="font-bold text-navy-900 text-lg">Rizal Technological University</h3>
                         <p class="text-sm font-medium text-[#0369a1] mt-1">Bachelor of Science in Business Administration Major in Financial Management</p>
                         <p class="text-sm text-slate-500 mt-1"><i class="fa-regular fa-calendar mr-1"></i> 2023 – 2027</p>
-                        <p class="text-sm font-bold text-slate-700 mt-2 inline-block bg-slate-100 px-3 py-1 rounded-full">JFinEx - Treasurer</p>
+                        <p class="text-xs sm:text-sm font-bold text-slate-700 mt-2 inline-block bg-slate-100 px-3 py-1 rounded-full">JFinEx - Treasurer</p>
                     </div>
                 </div>
                 
                 <div class="border-t border-slate-100 pt-6">
                     <h4 class="text-sm font-bold text-navy-900 mb-4 uppercase tracking-wider">Key Coursework</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm text-slate-600 font-medium">
-                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Financial Accounting</div>
-                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Investment Analysis</div>
-                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Managerial Accounting</div>
-                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Business Law</div>
-                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Corporate Finance</div>
-                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Taxation</div>
-                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Financial Management</div>
-                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs"></i>Economics</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs shrink-0"></i>Financial Accounting</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs shrink-0"></i>Investment Analysis</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs shrink-0"></i>Managerial Accounting</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs shrink-0"></i>Business Law</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs shrink-0"></i>Corporate Finance</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs shrink-0"></i>Taxation</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs shrink-0"></i>Financial Management</div>
+                        <div class="flex items-center gap-2 hover:text-[#0369a1] transition-colors"><i class="fa-solid fa-check text-[#0369a1]/50 text-xs shrink-0"></i>Economics</div>
                     </div>
                 </div>
             </div>
 
             <!-- Skills Card -->
-            <div id="skills" class="reveal delay-100 bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300">
+            <div id="skills" class="reveal delay-100 bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-5 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
+                <div class="flex items-center gap-3 mb-6 sm:mb-8">
+                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300 shrink-0">
                         <i class="fa-solid fa-gear text-[#0369a1] group-hover:text-white text-lg transition-colors duration-300"></i>
                     </div>
                     <h2 class="text-xl font-bold text-navy-900">Skills</h2>
@@ -300,61 +300,62 @@
             </div>
 
             <!-- Certifications Card -->
-            <div id="certifications" class="reveal bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300">
+            <div id="certifications" class="reveal bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-5 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
+                <div class="flex items-center gap-3 mb-6 sm:mb-8">
+                    <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300 shrink-0">
                         <i class="fa-solid fa-award text-[#0369a1] group-hover:text-white text-lg transition-colors duration-300"></i>
                     </div>
                     <h2 class="text-xl font-bold text-navy-900">Certifications</h2>
                 </div>
 
-                <div class="space-y-6">
-                    <a href="#" class="flex items-center justify-between p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-file-excel text-green-600 text-2xl"></i>
+                <div class="space-y-3 sm:space-y-4">
+                    <a href="#" class="flex items-center justify-between p-3 -mx-2 sm:-mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-50 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-chart-pie text-indigo-600 text-xl sm:text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-900 group-hover/cert:text-[#0369a1] transition-colors">FMVA® (Financial Modeling)</h4>
+                                <p class="text-xs text-slate-500 mt-1 font-medium">Corporate Finance Institute | 2026</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1 shrink-0 ml-2"></i>
+                    </a>
+
+                    <a href="#" class="flex items-center justify-between p-3 -mx-2 sm:-mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-50 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-file-excel text-green-600 text-xl sm:text-2xl"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-sm text-navy-900 group-hover/cert:text-[#0369a1] transition-colors">Microsoft Excel - Advanced</h4>
                                 <p class="text-xs text-slate-500 mt-1 font-medium">LinkedIn Learning | 2025</p>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1"></i>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1 shrink-0 ml-2"></i>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
-                                <i class="fa-brands fa-google text-[#4285F4] text-2xl"></i>
+                    <a href="#" class="flex items-center justify-between p-3 -mx-2 sm:-mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-google text-[#4285F4] text-xl sm:text-2xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-sm text-navy-900 group-hover/cert:text-[#0369a1] transition-colors">Google Data Analytics Professional</h4>
+                                <h4 class="font-bold text-sm text-navy-900 group-hover/cert:text-[#0369a1] transition-colors">Google Data Analytics Pro</h4>
                                 <p class="text-xs text-slate-500 mt-1 font-medium">Coursera | 2025</p>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1"></i>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1 shrink-0 ml-2"></i>
                     </a>
-                    
-                    <a href="#" class="flex items-center justify-between p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors group/cert">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-chart-pie text-indigo-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-navy-900 group-hover/cert:text-[#0369a1] transition-colors">FMVA® (Financial Modeling)</h4>
-                                <p class="text-xs text-slate-500 mt-1 font-medium">Corporate Finance Institute | 2025</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs group-hover/cert:text-[#0369a1] transition-colors group-hover/cert:translate-x-1"></i>
-                    </a>
+                
                 </div>
             </div>
 
             <!-- Projects Card -->
-            <div id="projects" class="reveal delay-100 bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
-                <div class="flex items-center justify-between mb-8">
+            <div id="projects" class="reveal delay-100 bg-white rounded-2xl shadow-sm border-2 border-slate-200 p-5 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#0369a1] group">
+                <div class="flex items-center justify-between mb-6 sm:mb-8">
                     <div class="flex items-center gap-3">
-                        <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300">
+                        <div class="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-[#0369a1] transition-colors duration-300 shrink-0">
                             <i class="fa-solid fa-file-lines text-[#0369a1] group-hover:text-white text-lg transition-colors duration-300"></i>
                         </div>
                         <h2 class="text-xl font-bold text-navy-900">Projects</h2>
@@ -363,8 +364,8 @@
                 </div>
 
                 <div class="space-y-6">
-                    <div class="flex flex-col sm:flex-row gap-4 p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group/proj">
-                        <img src="assets/project-1.png" alt="Project 1" class="w-full sm:w-24 h-16 rounded-lg object-cover border border-slate-200 shrink-0 group-hover/proj:border-[#0369a1]/30 transition-colors" onerror="this.src='https://placehold.co/200x150/f1f5f9/64748b?text=P1'">
+                    <div class="flex flex-col sm:flex-row gap-4 p-3 -mx-2 sm:-mx-3 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group/proj">
+                        <img src="assets/project-1.png" alt="Project 1" class="w-full sm:w-28 h-48 sm:h-20 rounded-lg object-cover border border-slate-200 shrink-0 group-hover/proj:border-[#0369a1]/30 transition-colors" onerror="this.src='https://placehold.co/200x150/f1f5f9/64748b?text=P1'">
                         <div class="flex-1">
                             <h4 class="font-bold text-sm text-navy-900 group-hover/proj:text-[#0369a1] transition-colors">FP&A Dashboard - Monthly Planning</h4>
                             <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">Built a dynamic financial model in Excel to project revenue, expenses, and profitability for the next 12 months.</p>
@@ -375,8 +376,8 @@
                         </div>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 p-3 -mx-3 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group/proj">
-                        <img src="assets/project-2.png" alt="Project 2" class="w-full sm:w-24 h-16 rounded-lg object-cover border border-slate-200 shrink-0 group-hover/proj:border-[#0369a1]/30 transition-colors" onerror="this.src='https://placehold.co/200x150/f1f5f9/64748b?text=P2'">
+                    <div class="flex flex-col sm:flex-row gap-4 p-3 -mx-2 sm:-mx-3 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group/proj">
+                        <img src="assets/project-2.png" alt="Project 2" class="w-full sm:w-28 h-48 sm:h-20 rounded-lg object-cover border border-slate-200 shrink-0 group-hover/proj:border-[#0369a1]/30 transition-colors" onerror="this.src='https://placehold.co/200x150/f1f5f9/64748b?text=P2'">
                         <div class="flex-1">
                             <h4 class="font-bold text-sm text-navy-900 group-hover/proj:text-[#0369a1] transition-colors">Budget Variance Analysis</h4>
                             <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">Analyzed actual vs. budget performance for a business unit and provided insights on key cost drivers.</p>
@@ -393,75 +394,75 @@
         
         <!-- Call To Action Banner -->
         <div class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-            <div class="bg-gradient-to-r from-[#f0f7ff] to-blue-50 rounded-2xl border border-blue-200 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="flex items-start sm:items-center gap-5">
+            <div class="bg-gradient-to-r from-[#f0f7ff] to-blue-50 rounded-2xl border border-blue-200 p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-5">
                     <div class="bg-white p-3 rounded-full shadow-sm shrink-0">
-                        <i class="fa-solid fa-bullseye text-[#0369a1] text-3xl"></i>
+                        <i class="fa-solid fa-bullseye text-[#0369a1] text-2xl sm:text-3xl"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Looking for an FP&A Analyst | Financial Analyst role?</h3>
-                        <div class="flex flex-col sm:flex-row flex-wrap gap-y-1 gap-x-3 text-sm font-medium text-slate-600">
-                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Open to entry-level opportunities</span>
+                        <h3 class="text-lg sm:text-xl font-bold text-navy-900 mb-3">Looking for an FP&A Analyst | Financial Analyst role?</h3>
+                        <div class="flex flex-col sm:flex-row flex-wrap justify-center sm:justify-start gap-y-2 gap-x-3 text-sm font-medium text-slate-600">
+                            <span class="flex items-center justify-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Open to entry-level roles</span>
                             <span class="hidden sm:inline text-slate-300">|</span>
-                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Ready to learn and contribute</span>
+                            <span class="flex items-center justify-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Ready to contribute</span>
                             <span class="hidden sm:inline text-slate-300">|</span>
-                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Available immediately</span>
+                            <span class="flex items-center justify-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> Available immediately</span>
                         </div>
                     </div>
                 </div>
-                    <a href="mailto:amagamarielanne@gmail.com" class="w-full md:w-auto bg-navy-900 hover:bg-[#0369a1] text-white text-sm font-bold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 whitespace-nowrap flex items-center justify-center gap-2">
-                        Let's Connect <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                <a href="mailto:amagamarielanne@gmail.com" class="w-full md:w-auto bg-navy-900 hover:bg-[#0369a1] text-white text-sm font-bold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2">
+                    Let's Connect <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </main>
 
     <!-- Footer Section (Navy matching Hero) -->
-    <footer id="contact" class="bg-navy-900 bg-mountain-pattern bg-cover bg-center bg-blend-overlay bg-opacity-[0.95] text-white pt-20 pb-8 mt-auto border-t-4 border-[#0369a1]/30">
+    <footer id="contact" class="bg-navy-900 bg-mountain-pattern bg-cover bg-center bg-blend-overlay bg-opacity-[0.95] text-white pt-16 lg:pt-20 pb-8 mt-auto border-t-4 border-[#0369a1]/30">
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Top Footer Content Layout -->
-            <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-8 pb-16">
+            <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-8 pb-12 lg:pb-16">
                 
                 <!-- Left: Goal Text -->
                 <div class="reveal w-full lg:w-5/12 text-center lg:text-left">
                     <p class="text-[#0369a1] text-sm font-bold uppercase tracking-[0.2em] mb-4">My Goal</p>
-                    <p class="text-2xl sm:text-3xl font-bold text-slate-100 leading-snug tracking-tight">
+                    <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-100 leading-snug tracking-tight">
                         To become a valuable FP&A professional and contribute to meaningful business growth through data, strategy, and sound financial analysis.
                     </p>
                 </div>
 
                 <!-- Center: Vertical Icons Lineup -->
-                <div class="reveal delay-100 w-full lg:w-4/12 flex items-center justify-center gap-6 sm:gap-10">
+                <div class="reveal delay-100 w-full lg:w-4/12 flex items-center justify-center gap-4 sm:gap-10">
                     <!-- Icon 1 -->
-                    <div class="flex flex-col items-center group cursor-pointer">
-                        <div class="w-14 h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
-                            <i class="fa-solid fa-book-open text-xl"></i>
+                    <div class="flex flex-col items-center group cursor-pointer w-1/3 sm:w-auto">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-3 sm:mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
+                            <i class="fa-solid fa-book-open text-lg sm:text-xl"></i>
                         </div>
-                        <span class="text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Learn<br>Continuously</span>
+                        <span class="text-[10px] sm:text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Learn<br>Continuously</span>
                     </div>
                     
                     <!-- Icon 2 -->
-                    <div class="flex flex-col items-center group cursor-pointer">
-                        <div class="w-14 h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
-                            <i class="fa-solid fa-arrow-trend-up text-xl"></i>
+                    <div class="flex flex-col items-center group cursor-pointer w-1/3 sm:w-auto">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-3 sm:mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
+                            <i class="fa-solid fa-arrow-trend-up text-lg sm:text-xl"></i>
                         </div>
-                        <span class="text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Drive<br>Impact</span>
+                        <span class="text-[10px] sm:text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Drive<br>Impact</span>
                     </div>
 
                     <!-- Icon 3 -->
-                    <div class="flex flex-col items-center group cursor-pointer">
-                        <div class="w-14 h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
-                            <i class="fa-solid fa-users text-xl"></i>
+                    <div class="flex flex-col items-center group cursor-pointer w-1/3 sm:w-auto">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-slate-600 bg-navy-800/50 flex items-center justify-center mb-3 sm:mb-4 text-[#0369a1] group-hover:bg-[#0369a1] group-hover:text-white group-hover:border-[#0369a1] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,105,161,0.5)]">
+                            <i class="fa-solid fa-users text-lg sm:text-xl"></i>
                         </div>
-                        <span class="text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Build<br>Together</span>
+                        <span class="text-[10px] sm:text-xs font-semibold text-slate-300 text-center leading-tight uppercase tracking-wider group-hover:text-white transition-colors">Build<br>Together</span>
                     </div>
                 </div>
 
                 <!-- Right: Cursive Quote -->
-                <div class="reveal delay-200 w-full lg:w-3/12 flex justify-center lg:justify-end">
-                    <div class="relative transform -rotate-6 mt-4 hover:scale-105 transition-transform duration-500 cursor-default">
+                <div class="reveal delay-200 w-full lg:w-3/12 flex justify-center lg:justify-end mt-8 lg:mt-0">
+                    <div class="relative transform -rotate-6 mt-4 hover:scale-105 transition-transform duration-500 cursor-default hidden sm:block">
                         <p class="font-handwriting text-3xl leading-[1.2] text-slate-200 text-center lg:text-left drop-shadow-md">
                             Ready to learn, contribute,<br>and grow.
                         </p>
@@ -475,7 +476,7 @@
 
             <!-- Bottom Line (Name and Socials) -->
             <div class="border-t border-slate-700/80 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-sm text-slate-400">
+                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs sm:text-sm text-slate-400 text-center sm:text-left">
                     <span class="text-white font-bold tracking-wide">Mariel Anne Amaga</span>
                     <span class="hidden sm:block border-l border-slate-600 h-4"></span>
                     <span class="font-medium">FP&A Analyst | Financial Analyst</span>
